@@ -32,6 +32,7 @@ int print_rot13(char *rot)
 				}
 			}
 		} else
+
 			count += (write(1, &a, 1), 1);
 		i++;
 	}

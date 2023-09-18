@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * print_ reverse - reversed string.
+ * print_reverse - reversed string.
  * @r: parameter
  *
  * Return: return count
  */
 
-int print_ reverse(va_list r)
+int print_reverse(va_list r)
 {
 	int i, count = 0;
 	char *ch;

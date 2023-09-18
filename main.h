@@ -4,10 +4,10 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdio.h>
-
+#include <limits.h>
 
 int _printf(const char *format, ...);
 int print_rot13(char *rot);
-int print_ reverse(va_list r);
+int print_reverse(va_list r);
 
 #endif
