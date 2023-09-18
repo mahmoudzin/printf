@@ -11,6 +11,7 @@ int print_rot13(char *rot)
 {
 	int i, j;
 	int count = 0;
+	char a;
 	char alpha[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char result[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
@@ -23,12 +24,15 @@ int print_rot13(char *rot)
 			{
 				if (rot[i] == alpha[j])
 				{
-					count += putchar(result[j]);
+					a = result[j];
+					count += (write(1, &a, 1), 1);
 				}
 			}
+		} else
+		{
+			a = rot[i];
+			count += (write(1, &a, 1), 1);
 		}
-		else
-			count += putchar(result[j]);
 		i++;
 	}
 	return (count);
