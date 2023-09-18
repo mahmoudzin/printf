@@ -18,33 +18,40 @@ int _printf(const char *format, ...)
 	va_start(list, format);
 	while (*format)
 	{
-		(*format != '%') ? write(1, format, 1), count++ : format++;
-		if (*format == '\0')
-			break;
-		if (*format == '%')
+		if (*format != '%')
 		{
 			write(1, format, 1);
-			count++;
+				count++;
 		}
-		else if (*format == 'c')
+		else
 		{
-			char c = (char)va_arg(list, int);
+			format++;
+			if (*format == '\0')
+				break;
+			if (*format == '%')
+			{
+				write(1, format, 1);
+				count++;
+			}
+			else if (*format == 'c')
+			{
+				char c = (char)va_arg(list, int);
 
-			write(1, &c, 1);
-			count++;
+				write(1, &c, 1);
+				count++;
+			}
+			else if (*format == 's')
+			{
+				char *str = va_arg(list, char *);
+				int str_len = 0;
+				
+				while (str[str_len] != '\0')
+					str_len++;
+
+				write(1, str, str_len);
+				count += str_len;
+			}
 		}
-		else if (*format == 's')
-		{
-			char *str = va_arg(list, char *);
-			int str_len = 0;
-
-			while (str[str_len] != '\0')
-				str_len++;
-
-			write(1, str, str_len);
-			count += str_len;
-		}
-
 		format++;
 	}
 	va_end(list);
