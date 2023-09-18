@@ -15,6 +15,9 @@ int print_rot13(char *rot)
 	char alpha[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char result[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
+	if (rot == NULL)
+		rot = "(null)";
+
 	i = 0;
 	while (rot[i] != 0)
 	{
