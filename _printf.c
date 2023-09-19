@@ -38,10 +38,7 @@ int _printf(const char *format, ...)
 				char *str = va_arg(list, char *);
 				int str_len = strlen(str);
 
-				if (str == NULL)
-					str = "(null)";
-				else
-					count += (write(1, str, str_len), str_len);
+				count += (write(1, str, str_len), str_len);
 			}
 		}
 		format++;
