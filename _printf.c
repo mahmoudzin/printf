@@ -29,9 +29,9 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 'c')
 			{
-				char c = (char)va_arg(list, int);
+				char c = va_arg(list, int);
 
-				count += (write(1, &c, 1), 1);
+				count += (write(1, &c, 1));
 			}
 			else if (*format == 's')
 			{
