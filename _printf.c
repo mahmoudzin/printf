@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == '%')
 			{
-				count += (write(1, format, 1));
+				count += (write(1, &format, 1));
 			}
 			else if (*format == 'c')
 			{
@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 				char *str = va_arg(list, char *);
 				int str_len = strlen(str);
 
-				count += (write(1, str, str_len));
+				count += (write(1, &str, str_len));
 			}
 		}
 		format++;
