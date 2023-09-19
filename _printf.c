@@ -19,9 +19,7 @@ int _printf(const char *format, ...)
 	while (*format)
 	{
 		if (*format != '%')
-		{
 			count += (write(1, format, 1), 1);
-		}
 		else
 		{
 			format++;
@@ -40,9 +38,11 @@ int _printf(const char *format, ...)
 				char *str = va_arg(list, char *);
 				int str_len = strlen(str);
 
-				count += (write(1, str, str_len), str_len);
+				if (str == NULL)
+					str = "(null)";
+				else
+					count += (write(1, str, str_len), str_len);
 			}
-
 		}
 		format++;
 	}
