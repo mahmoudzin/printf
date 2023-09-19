@@ -8,9 +8,9 @@
 
 #define BUFF_SIZE 1024
 
-
 int _printf(const char *format, ...);
 int print_rot13(char *rot);
 int print_reverse(va_list r);
+int _putchar(char c);
 
 #endif
