@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 	while (*format)
 	{
 		if (*format != '%')
-			count += (write(1, format, 1));
+			count += (write(1, &format, 1));
 		else
 		{
 			format++;
